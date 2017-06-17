@@ -4,7 +4,7 @@
 
 import random
 
-WORDLIST = 'diceware.wordlist.asc'
+WORDLIST = 'diceware.wordlist.txt'
 INDEX_LENGTH = 5
 
 def load():
