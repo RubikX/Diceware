@@ -2,7 +2,7 @@
 # Inspired by: Micah Lee's article on The Intercept
 # Author: Edison Suen
 
-import random
+import secrets
 
 WORDLIST = 'diceware.wordlist.txt'
 INDEX_LENGTH = 5
@@ -17,9 +17,8 @@ def load():
 
 def roll(num_words):
 	num_list = []
-	random.seed()
 	for _ in range(INDEX_LENGTH*num_words):
-		num_list.append(random.randint(1,6))
+		num_list.append(secrets.choice(range(1,6)))
 
 	list2string = ','.join(str(num_list[i]) for i in num_list)
 	list2string = list2string.replace(',','')
@@ -33,7 +32,7 @@ def passphrase(num_words):
 	list_numbers = roll(num_words)
 	for i in list_numbers:
 		passphrase += word_dict[i] + ' '
-	print(passphrase)
+	print("Your passphrase is: {}".format(passphrase))
 
 def main():
 	num_words = int(input("Please enter the word length of desired passphrase: "))
