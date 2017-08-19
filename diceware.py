@@ -16,10 +16,7 @@ def load():
 	return word_dict
 
 def roll(num_words):
-	num_list = []
-	for _ in range(INDEX_LENGTH*num_words):
-		num_list.append(secrets.choice(range(1,6)))
-
+	num_list = [secrets.choice(range(1,6)) for _ in range(INDEX_LENGTH*num_words)]
 	list2string = ','.join(str(num_list[i]) for i in num_list)
 	list2string = list2string.replace(',','')
 	split_string = lambda x, n: [x[i:i+n] for i in range(0, len(x), n)]
